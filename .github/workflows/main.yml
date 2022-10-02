@@ -12,10 +12,7 @@ jobs:
     - uses: r-lib/actions/setup-r@master
      
     - name: Install spatial dependencies
-      run: |
-        sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
-        sudo apt-get update
-        sudo apt-get install libgdal-dev libproj-dev libgeos-dev libudunits2-dev netcdf-bin
+      run: sudo apt-get install libgdal-dev libproj-dev libgeos-dev libudunits2-dev netcdf-bin
 
     - name: Install packages
       run: R -e 'install.packages(c("sf", "terra"))'
