@@ -1,0 +1,21 @@
+on: 
+  workflow_dispatch
+
+name: test
+
+jobs: 
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - uses: r-lib/actions/setup-r@master
+     
+    - name: Install spatial dependencies
+      run: sudo apt-get install libgdal-dev libproj-dev libgeos-dev libudunits2-dev netcdf-bin
+
+    - name: Install packages
+      run: R -e 'install.packages(c("sf", "terra"))'
+
+    - name: test script
+      run: Rscript test.R
