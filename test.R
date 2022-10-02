@@ -1,3 +1,4 @@
+Sys.setenv(GDAL_SKIP="DODS")
 library(sf)
 library(terra)
 
