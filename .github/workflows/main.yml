@@ -5,14 +5,14 @@ name: test
 
 jobs: 
   test:
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
 
     steps:
     - uses: actions/checkout@master
     - uses: r-lib/actions/setup-r@master
      
     - name: Install spatial dependencies
-      run: sudo apt-get install libgdal-dev libproj-dev libgeos-dev libudunits2-dev netcdf-bin
+      run: brew install gdal proj
 
     - name: Install packages
       run: R -e 'install.packages(c("sf", "terra"))'
