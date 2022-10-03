@@ -15,7 +15,7 @@ jobs:
       run: sudo apt-get install libgdal-dev libproj-dev libgeos-dev libudunits2-dev netcdf-bin
 
     - name: Install packages
-      run: R -e 'install.packages(c("sf", "terra"))'
+      run: R -e 'install.packages(c("sf", "rmarkdown"))'
 
-    - name: test script
-      run: Rscript test.R
+    - name: test rmarkdown
+      run: R -e 'rmarkdown::render("test2.Rmd")'
