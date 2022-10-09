@@ -1,0 +1,36 @@
+on: 
+  workflow_dispatch
+
+name: test
+
+jobs: 
+  test:
+    runs-on: ${{ matrix.config.os }}
+    
+    name: ${{ matrix.config.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - {os: macOS-latest}
+          - {os: windows-latest}
+          - {os: ubuntu-latest}
+
+    steps:
+    - uses: actions/checkout@master
+    - uses: r-lib/actions/setup-r@master
+           
+    - name: Install Linux dependencies
+      if: runner.os == 'Linux'
+      run: sudo apt-get install libudunits2-dev libgdal-dev libgeos-dev libproj-dev
+
+    - name: Install macOS dependencies
+      if: runner.os == 'macOS'
+      run: brew install gdal proj
+
+    - name: Install packages
+      run: R -e 'install.packages(c("stars", "exactextractr"))'
+
+    - name: Test script
+      run: Rscript test.R
