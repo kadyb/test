@@ -30,7 +30,10 @@ jobs:
       run: brew install gdal proj
 
     - name: Install packages
-      run: R -e 'install.packages(c("stars", "exactextractr", "tibble"))'
+      run: |
+        install.packages(c("exactextractr", "tibble", "remotes"))
+        remotes::install_github("r-spatial/stars")
+      shell: Rscript {0}
 
     - name: Test script
       run: Rscript test.R
