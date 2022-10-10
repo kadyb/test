@@ -9,6 +9,9 @@ jobs:
     
     name: ${{ matrix.config.os }}
 
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+
     strategy:
       fail-fast: false
       matrix:
