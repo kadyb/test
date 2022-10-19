@@ -21,8 +21,8 @@ jobs:
           - {os: ubuntu-latest}
 
     steps:
-    - uses: actions/checkout@master
-    - uses: r-lib/actions/setup-r@master
+    - uses: actions/checkout@v2
+    - uses: r-lib/actions/setup-r@v2
            
     - name: Install Linux dependencies
       if: runner.os == 'Linux'
@@ -34,8 +34,7 @@ jobs:
 
     - name: Install packages
       run: |
-        install.packages(c("exactextractr", "tibble", "remotes"))
-        remotes::install_github("r-spatial/stars")
+        install.packages(c("tibble", "stars"))
       shell: Rscript {0}
 
     - name: Test script
