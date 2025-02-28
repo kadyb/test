@@ -9,4 +9,4 @@ r <- rast(url)
 paste("Raster inMemory:", inMemory(r))
 extr <- extract(r, pts)
 paste("Any NA:", any(is.na(extr$SR_LR)))
-paste("How many NA:", length(extr$SR_LR[is.na(extr$SR_LR)])"
+paste("How many NA:", length(extr$SR_LR[is.na(extr$SR_LR)]))
