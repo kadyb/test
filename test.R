@@ -1,7 +1,7 @@
 library(terra)
 libVersion()
 
-url <- "/vsizip/vsicurl/https://naciscdn.org/naturalearth/10m/raster/SR_LR.zip/SR_LR.tif"
+url <- "/vsizip/vsicurl/https://geodata.ucdavis.edu/test/SR_LR.zip/SR_LR.tif"
 set.seed(1)
 pts <- cbind(x = runif(44000, -180, 180), y = runif(44000, -90, 90))
 
