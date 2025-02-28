@@ -17,7 +17,7 @@ jobs:
       matrix:
         config:
           - {os: macOS-latest}
-          #- {os: windows-latest}
+          - {os: windows-latest}
           - {os: ubuntu-latest}
 
     steps:
@@ -34,7 +34,7 @@ jobs:
 
     - name: Install packages
       run: |
-        install.packages(c("tibble", "stars"))
+        install.packages("terra")
       shell: Rscript {0}
 
     - name: Test script
