@@ -1,4 +1,5 @@
 library(terra)
+libVersion()
 
 url <- "/vsizip/vsicurl/https://naciscdn.org/naturalearth/10m/raster/SR_LR.zip/SR_LR.tif"
 set.seed(1)
