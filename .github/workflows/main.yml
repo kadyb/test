@@ -32,5 +32,12 @@ jobs:
       if: runner.os == 'macOS'
       run: brew install gdal proj
 
+    - name: Install packages
+      run: |
+        # install.packages("remotes")
+        # remotes::install_github("rspatial/terra")
+        install.packages("terra")
+      shell: Rscript {0}
+
     - name: Test script
       run: Rscript test.R
