@@ -1,4 +1,3 @@
-install.packages("terra")
 library(terra)
 libVersion()
 gdal(warn = 1)
