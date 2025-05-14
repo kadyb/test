@@ -1,12 +1,9 @@
+install.packages("terra")
 library(terra)
 libVersion()
+gdal(warn = 1)
 
-url <- "/vsizip/vsicurl/https://naciscdn.org/naturalearth/10m/raster/SR_LR.zip/SR_LR.tif"
-set.seed(1)
-pts <- cbind(x = runif(44000, -180, 180), y = runif(44000, -90, 90))
-
-r <- rast(url)
-paste("Raster inMemory:", inMemory(r))
-extr <- extract(r, pts)
-paste("Any NA:", any(is.na(extr$SR_LR)))
-paste("How many NA:", length(extr$SR_LR[is.na(extr$SR_LR)]))
+url <- "/vsicurl/https://os.zhdk.cloud.switch.ch/chelsav2/GLOBAL/climatologies/1981-2010/bio/CHELSA_bio10_1981-2010_V.2.1.tif"
+e = ext(c(-26, 37.5, 34, 72))
+r = rast(url, win = e, raw = TRUE)
+r = toMemory(r)
