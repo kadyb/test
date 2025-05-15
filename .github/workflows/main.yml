@@ -34,9 +34,9 @@ jobs:
 
     - name: Install packages
       run: |
-        # install.packages("remotes")
-        # remotes::install_github("rspatial/terra")
-        install.packages("terra")
+        install.packages("remotes")
+        remotes::install_github("rspatial/terra")
+        # install.packages("terra")
       shell: Rscript {0}
 
     - name: Test script
